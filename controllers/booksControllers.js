@@ -9,8 +9,8 @@ module.exports = {
   findAll: function (req, res) {
     db.Book.find(req.query)
       .sort({ date: -1 })
-      .then(dbModel => res.json(dbModel))
-      .catch(err => {
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => {
         console.error(err);
         res.status(422).json(err);
       });
@@ -19,8 +19,8 @@ module.exports = {
   // Find book by id method
   findById: function (req, res) {
     db.Book.findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => {
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => {
         console.error(err);
         res.status(422).json(err);
       });
@@ -29,8 +29,8 @@ module.exports = {
   //   Create book method
   create: function (req, res) {
     db.Book.create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => {
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => {
         console.error(err);
         res.status(422).json(err);
       });
@@ -39,8 +39,8 @@ module.exports = {
   // update book method
   update: function (req, res) {
     db.Book.findOneAndUpdate({ _id: req.params.id }, req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => {
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => {
         console.error(err);
         res.status(422).json(err);
       });
@@ -49,9 +49,9 @@ module.exports = {
   //   delete book method
   remove: function (req, res) {
     db.Book.findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => {
+      .then((dbModel) => dbModel.remove())
+      .then((dbModel) => res.json(dbModel))
+      .catch((err) => {
         console.error(err);
         res.status(422).json(err);
       });
